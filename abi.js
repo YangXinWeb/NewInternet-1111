@@ -1,4 +1,5 @@
-let contractAddress = "0x38183221CEc0B4DF367cE664CD3180814546A7ca"
+let contractAddress = "0x78192F99603E101c1691487F5FA89C5a59dD3169"
+
 
 let abi=[
 	{
@@ -57,7 +58,7 @@ let abi=[
 				"type": "uint256"
 			}
 		],
-		"name": "Dots",
+		"name": "dots",
 		"outputs": [
 			{
 				"internalType": "uint8",
@@ -80,7 +81,7 @@ let abi=[
 	},
 	{
 		"inputs": [],
-		"name": "viewDot",
+		"name": "viewDots",
 		"outputs": [
 			{
 				"components": [
