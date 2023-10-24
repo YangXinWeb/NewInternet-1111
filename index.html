@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="ether-5.2.umd.min.js"></script>
+    <script src="abi.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #919191;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            height: 100vh;
+        }
+
+        .select-corlor{
+            margin-top:-15px;
+            margin-bottom:5px;
+            color:#cfcfcf;
+            font-size: 11px;
+        }
+
+        .color-picker-container {
+            text-align: left;
+            margin-bottom: 40px;
+            margin-top: 30px;
+            margin-left: 40px;
+            border: none;
+        }
+
+        .container {
+            width: 800px;
+            margin-top: 100px;
+            margin-left: 300px;
+            text-align: left;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: 5px;
+            box-shadow: 0 0 10px rgb(255, 255, 255, 0.5);
+        }
+
+        .add-button {
+            color: rgb(86, 86, 86);
+            border-radius: 40px;
+            border: none;
+            background-color: rgb(255, 255, 255);
+            width: 100px;
+            height: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="color-picker-container">
+        <p class = " select-corlor">Select Color</p>
+        <input type="color" id="color-picker" value="#FF5733">
+        <button class="add-button" id="add-dot">Add Color Dot</button>
+    </div>
+    <div class="container" id="container"></div>
+
+
+    <script>
+
+        main();
+
+        // everything goes inside the main() function
+        async function main() {
+            // A Web3Provider wraps a standard Web3 provider, which is
+            // what MetaMask injects as window.ethereum into each page
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+            // MetaMask requires requesting permission to connect users accounts
+            await provider.send("eth_requestAccounts", []);
+
+            // The MetaMask plugin also allows signing transactions to
+            // send ether and pay to change state within the blockchain.
+            // For this, you need the account signer...
+            const signer = provider.getSigner();
+
+            const contract = new ethers.Contract(contractAddress, abi, provider);
+
+            const contractWithSigner = contract.connect(signer);
+            /////////////////////////////////
+            // REQUIRED ETH CODE ABOVE ^^^^^^^^^ //
+            /////////////////////////////////
+            // OUR OWN CODE BELOW VVVVVVVVVVV //
+            ///////////////////////////////////////
+
+            //////
+
+            setDotColor();
+
+            const container = document.getElementById("container");
+            const addDotButton = document.getElementById("add-dot");
+            const colorPicker = document.getElementById("color-picker");
+
+            addDotButton.addEventListener("click", () => {
+
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                dot.style.backgroundColor = colorPicker.value;
+                console.log(colorPicker.value);
+              
+
+                // convert the value in the colorpicker from hexadecimal to rgb.
+                let dotColorRGB = hexToRgb(colorPicker.value);
+
+                // extract the individual r, g, b values from the dotColorRGB (which is a javascript object)
+                let r = dotColorRGB.r;
+                let g = dotColorRGB.g;
+                let b = dotColorRGB.b;         
+
+                //container.appendChild(dot);
+                             
+       
+                // store the number in the smart contract
+                // pass the r, g, b values into the contract's addDot function
+
+                let addDot = dotColorRGB;
+                contractWithSigner.addDot(r, g, b);
+
+                console.log(addDot);
+                
+            //+
+
+            async function setDotColor() {
+        let addDot = await contract.addDot();
+        $('body').script('dotCorRGM', `rgb(${red}, ${green}, ${blue})`)
+    }
+    
+
+     // Event listeners that make it so when you click the "submit" buttons on the web page, the colors get passed to the contract
+     $('#add-dot').click(addDot);
+
+            //+          
+                contract.on ("colorSetEvent", (redValue, greenValue, blueValue)  => {
+
+                // set the background color of the page with the red, green and blue values stored in the contract
+                $('body').css('background-color', `rgb(${redValue}, ${greenValue}, ${blueValue})`);
+
+                // print a note to our JavaScript console letting us know that the color changed.
+                console.log(`Color was changed, the new background color is: ${redValue}, ${greenValue}, ${blueValue}`);
+
+                })
+                                             
+            });
+ 
+            function hexToRgb(hex) {
+                var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+               
+            }
+
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
