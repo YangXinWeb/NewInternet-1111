@@ -20,12 +20,12 @@
         .select-corlor {
             margin-top: -15px;
             margin-bottom: 5px;
-            color: #858585;
+            color:  rgb(86, 86, 86);
             font-size: 11px;
         }
 
         .color-picker-container {
-            text-align: left;
+            text-align: left;        
             margin-bottom: 40px;
             margin-top: 30px;
             margin-left: 40px;
@@ -33,32 +33,69 @@
         }
 
         .container {
-            width: 800px;
+            width: 80%;
             margin-top: 100px;
-            margin-left: 300px;
+            margin-left: 10%;
             text-align: left;
-        }
-
-        .dot {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            margin: 5px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5 );
         }
 
         .add-button {
             color: rgb(86, 86, 86);
             border-radius: 40px;
             border: none;
-            background-color: rgb(255, 255, 255);
-            width: 100px;
-            height: 25px;
+            background-color: rgb(255, 255, 255, 0.1);
+            width: 110px;
+            height: 28px;
             margin-left: 20px;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(255, 255, 255, 1);
         }
+        .add-button:hover{
+            color: rgb(255, 255, 255);
+            background-color: rgba(212, 212, 212);
+            
+        }
+
+        .dot {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 5px;
+            box-shadow: 0 0 5px rgba(255, 237, 248, 0.4);
+            transition: width 0.3s, height 0.3s, box-shadow 0.3s, opacity 0.5s;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+            animation: move 45s linear infinite, pulse 30s alternate infinite;
+        }
+
+        @keyframes move {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50px, 50px);
+            }
+            50% {
+                transform: translate(100px, 0);
+            }
+            75% {
+                transform: translate(50px, -50px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(0.3);
+            }
+        }
+
+
+
+
+
     </style>
 
 
@@ -158,8 +195,6 @@
                 } : null;
             }
         }
-
-
 
     </script>
 </body>
