@@ -63,9 +63,17 @@
             border-radius: 50%;
             margin: 5px;
             box-shadow: 0 0 5px rgba(255, 237, 248, 0.4);
-            transition: width 0.3s, height 0.3s, box-shadow 0.3s, opacity 0.5s;
+            transition: width 0.3s, height 0.3s, box-shadow 0.3s;
             background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
             animation: move 45s linear infinite, pulse 30s alternate infinite;
+        }
+
+        .dot:hover{
+            width: 50px;
+            height: 50px;
+            border-radius: 10%;
+            background: radial-gradient(circle, rgba(255, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+       
         }
 
         @keyframes move {
@@ -85,10 +93,10 @@
 
         @keyframes pulse {
             0%, 100% {
-                transform: scale(1.5);
+                transform: scale(0.4);
             }
             50% {
-                transform: scale(0.3);
+                transform: scale(1.5);
             }
         }
 
@@ -189,6 +197,8 @@
                     b: parseInt(result[3], 16)
                 } : null;
             }
+            
+            
         }
 
     </script>
