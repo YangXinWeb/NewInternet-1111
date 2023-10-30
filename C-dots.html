@@ -40,9 +40,9 @@
         }
 
         .container {
-            width: 65%;
+            width: 80%;
             margin-top: 70px;
-            margin-left: 20%;
+            margin-left: 13%;
             text-align: left;
         }
 
@@ -65,21 +65,22 @@
 
         .dot {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             margin: 5px;
             box-shadow: 0 0 5px rgba(252, 186, 210, 0.4);
             transition: width 0.3s, height 0.3s, box-shadow 0.3s;
-            background: radial-gradient(circle, rgba(55, 55, 55, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
-            animation: move 45s linear infinite, pulse 30s alternate infinite;
+            background: radial-gradient(circle, rgba(55, 55, 55, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+            animation: move 35s linear infinite, pulse 20s alternate infinite;
         }
 
         .dot:hover{
-            width: 40px;
-            height: 40px;
+            width: 80px;
+            height: 80px;
             border-radius: 10%;
             background: radial-gradient(circle, rgba(4, 255, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+            box-shadow: 0 0 10px rgba(64, 64, 64, 0.5);
        
         }
 
@@ -91,10 +92,10 @@
                 transform: translate(40px, 40px);
             }
             50% {
-                transform: translate(100px, 0);
+                transform: translate(30px, 30px);
             }
             75% {
-                transform: translate(40px, -40px);
+                transform: translate(70px, 70px);
             }
         }
 
