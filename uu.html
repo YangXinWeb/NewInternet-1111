@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Red Dot Animation</title>
+
+
+    <style>
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.red-dot {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    animation: expandAndMove 3s cubic-bezier(0.6, 0.3, 0.4, 0.9) infinite; /* Apply the custom cubic-bezier function */
+}
+
+@keyframes expandAndMove {
+    0%, 100% {
+        transform: translateY(10px) scale(0.1); /* Starting position, no expansion */
+    }
+    50% {
+        transform: translateY(80px) scale(1.5); /* Midpoint, expand */
+    }
+    51% {
+        transform: translateY(85px) scale(1.8); /* Prevents a sudden jump between 50% and 51% */
+    }
+    100% {
+        transform: translateY(100px) scale(0.1); /* Ending position, contraction */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="red-dot"></div>
+</body>
+</html>
