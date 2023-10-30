@@ -10,7 +10,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color:rgba(220, 220, 220);
+            background-color:rgb(133, 134, 159);
             display: flex;
             flex-direction: column;
             justify-content: left;
@@ -26,11 +26,11 @@
 
         .color-picker-container {
             width:100%;
-            height: 60px;
+            height: 70px;
             position: fixed;
             text-align: left;        
             border: none;
-            background-color: rgba(220, 220, 220, 0.8);
+            background-color: rgba(133, 134, 159, 0);
             z-index:2;
         }
 
@@ -40,9 +40,9 @@
         }
 
         .container {
-            width: 95%;
+            width: 90%;
             margin-top: 65px;
-            margin-right: 3%;
+            margin-left: 5%;
             text-align: left;
         }
 
@@ -50,7 +50,7 @@
             color: rgb(86, 86, 86);
             border-radius: 40px;
             border: none;
-            background-color: rgb(255, 255, 255, 0.1);
+            background-color: rgb(238, 238, 238, 0.1);
             width: 90px;
             height: 28px;
             margin-left: 20px;
@@ -59,7 +59,7 @@
         }
         .add-button:hover{
             color: rgb(255, 255, 255);
-            background-color: rgb(238, 238, 238);
+            background-color: rgba(255, 255, 255, 0.3);
             
         }
 
@@ -69,15 +69,15 @@
             height: 72px;
             border-radius: 50%;
             margin: 5px;
-            box-shadow: 0 0 7px rgba(252, 186, 210, 0.4);
+            box-shadow: 0 0 5px rgba(255, 179, 179, 0.5);
             transition: width 0.3s, height 0.3s, box-shadow 0.3s;
             background: radial-gradient(circle, rgba(55, 55, 55, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
-            animation: move 300s linear infinite, pulse 30s alternate infinite;
+            animation: move 600s linear infinite, pulse 100s alternate infinite;
         }
 
         .dot:hover{
-            width: 70px;
-            height: 70px;
+            width: 71px;
+            height: 71px;
             border-radius: 10%;
             background: radial-gradient(circle, rgba(4, 255, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
             box-shadow: 0 0 25px rgba(64, 64, 64, 0.5);
