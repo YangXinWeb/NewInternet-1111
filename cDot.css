@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color:rgb(133, 134, 159);
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  height: 100vh;
+}
+
+.select-corlor {
+  margin-top: -15px;
+  margin-bottom: 3px;
+  color: rgb(155, 156, 191);
+  font-size: 11px;
+}
+
+.color-picker-container {
+  width:100%;
+  height: 90px;
+  position: fixed;
+  text-align: left;        
+  border: none;
+  z-index:2;
+}
+
+.picker-container {
+  margin-top: 22px;
+  margin-left:30px;
+}
+
+.container {
+  width: 96%;
+  margin-top: 65px;
+  margin-left: 2%;
+  text-align: right;
+}
+
+.add-button {
+  color: rgb(211, 212, 238);
+  border-radius: 40px;
+  border: none;
+  background-color: rgb(238, 238, 238, 0.1);
+  width: 90px;
+  height: 28px;
+  margin-left: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+.add-button:hover{
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.3);
+  
+}
+
+.dot {
+  display: inline-block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 5px;
+  box-shadow: 0 0 4px rgba(255, 179, 179, 0.5);
+  transition: width 0.3s, height 0.3s, box-shadow 0.3s;
+  background: radial-gradient(circle, rgba(55, 55, 55, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  animation: move 600s linear infinite, pulse 100s alternate infinite;
+}
+
+.dot:hover{
+  width: 71px;
+  height: 71px;
+  border-radius: 10%;
+  background: radial-gradient(circle, rgba(4, 255, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);
+  box-shadow: 0 0 25px rgba(64, 64, 64, 0.5);
+
+}
+
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(0.3);
+  }
+  10% {
+      transform: scale(0.6);
+  }
+  20% {
+      transform: scale(0.2);
+  }
+  30% {
+      transform: scale(0.5);
+  }
+  40% {
+      transform: scale(0.3);
+  }
+
+  60% {
+      transform: scale(1.7);
+  }
+
+  75% {
+      transform: scale(0.2);
+  }           
+
+  80% {
+      transform: scale(0.5);
+  }           
+}
